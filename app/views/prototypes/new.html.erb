@@ -1,0 +1,15 @@
+<div>
+
+<%= form_for @prototype do |f| %>
+
+<%= f.fields_for :thumbnails do |thumbnail| %>
+
+<%= thumbnail.file_field :image %>
+
+<% end %>
+
+<%= f.submit "Submit" %>
+
+<% end %>
+
+</div>
