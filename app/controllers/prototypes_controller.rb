@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
   def new
-    @prototype = Prototype.new(create_params)
+    @prototype = Prototype.new
     3.times { @prototype.thumbnails.build }
   end
 
