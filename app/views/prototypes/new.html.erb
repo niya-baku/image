@@ -1,5 +1,5 @@
 
-
+<from>
 <div>
     <%= form_for @prototype do |f| %>
 		<%= f.fields_for :thumbnails do |thumbnail| %>
@@ -11,13 +11,23 @@
     <% end %>
   </div>
 
+
+  <div =class="form-inline">
+  <label class="checkbox-inline"><input type="radio" name="radio" value="Length" class="prop">縦に並べる</label>
+  <label class="checkbox-inline"><input type="radio" name="radio" value="side" class="prop" >横に並べる</label>
+</div>
+
+</form>
   <div class="preview">
-    <div class="material_1">aaaa</div>
-    <div class="material_2">wwwww</div>
-    <div class="material_3">ffff</div>
-    <div class="material_4">ssss</div>
+    <div class="material_1"></div>
+    <div class="material_2"></div>
+    <div class="material_3"></div>
+    <div class="material_4"></div>
   </div>
 
-
-
-<input type="file" name="prototype[thumbnails_attributes][0][image]" id="prototype_thumbnails_attributes_0_image"></button>
+  <div class="preview2">
+      <div class="material_1"></div>
+      <div class="material_2"></div>
+      <div class="material_3"></div>
+      <div class="material_4"></div>
+  </div>
