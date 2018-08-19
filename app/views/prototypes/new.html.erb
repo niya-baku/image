@@ -1,12 +1,23 @@
 
-  <div>
+
+<div>
     <%= form_for @prototype do |f| %>
-    <%= f.fields_for :thumbnails do |thumbnail| %>
-    <%= thumbnail.file_field :image %>
-    <% end %>
-    <%= f.submit "Submit" %>
+		<%= f.fields_for :thumbnails do |thumbnail| %>
+		   <li class="btn"><%= thumbnail.file_field :image %></li>
+
+
+		<% end %>
+	    <%= f.submit "Submit" %>
     <% end %>
   </div>
 
+  <div class="preview">
+    <div class="material_1">aaaa</div>
+    <div class="material_2">wwwww</div>
+    <div class="material_3">ffff</div>
+    <div class="material_4">ssss</div>
+  </div>
 
-  
+
+
+<input type="file" name="prototype[thumbnails_attributes][0][image]" id="prototype_thumbnails_attributes_0_image"></button>
