@@ -1,18 +1,20 @@
 
 $(function(){
+  var index
   $('li').on('click', function () {
-    var index = $('li.btn').index(this);
-    alert(index);
+    index = $('li.btn').index(this);
   });
 
   //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
   $('form').on('change', 'input[type="file"]', function(e) {
 
+    alert(index);
 
 
     var file = e.target.files[0];
         reader = new FileReader();
-        $preview = (".material_1");
+        preview_class = (".material_" + (index+1));
+        $preview = $(preview_class);
 
 
     // 画像ファイル以外の場合は何もしない
