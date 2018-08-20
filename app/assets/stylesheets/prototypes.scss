@@ -4,9 +4,10 @@
 
 .preview{
   border: solid 1px black;
-  height: 800px;
-  width:  320px;
+  height: 640px;
+  width:  640px;
   display: block;
+  position: relative;
 }
 
 .preview2{
@@ -15,3 +16,31 @@
   width:  1280px;
   display: none;
 }
+
+.material{
+	position: absolute;
+	width: 320px;
+	height: 320px;
+}
+
+.material_1{
+	left:0;
+	top:0;
+}
+
+.material_2{
+	left:320px;
+	top:0;
+}	
+
+.material_3{
+	top:320px;
+	left:0px;
+}	
+
+.material_4{
+	top:320px;	
+	left:320px;
+}	
+
+

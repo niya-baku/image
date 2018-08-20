@@ -1,24 +1,44 @@
 $(function() {
   $('[name="radio"]:radio').change( function() {
-    if($('[id=length]').prop('checked')){
-      $('.preview2').fadeOut();
-      $('.preview').fadeIn();
-    } else if ($('[id=side]').prop('checked')) {
-      $('.preview').fadeOut();
-      $('.preview2').fadeIn();
-    }
+
   });
 });
 
 $(function(){
+
+  $('input[name="X-size-1"]').change(function(){
+    $('.material_1').css('width',$(this).val() + 'px');
+  });
+
+  $('input[name="Y-size-1"]').change(function(){
+    $('.material_1').css('height',$(this).val() + 'px');
+  });
+
+  $('input[name="X-position-1"]').change(function(){
+    $('.material_1').css('left',$(this).val() + 'px');
+  });
+
+  $('input[name="Y-position-1"]').change(function(){
+    $('.material_1').css('top',$(this).val() + 'px');
+  });
+
+  $('input[name="X-size"]').change(function(){
+    $('.preview').css('width',$(this).val() + 'px');
+    $('input[name="data[flame_X]"]').val($(this).val() + 'px');
+  });
+
+  $('input[name="Y-size"]').change(function(){
+    $('.preview').css('height',$(this).val() + 'px');
+  });  
+
   $('li').on('click', function () {
     index = $('li.btn').index(this);
   });
 
+  $('input[name="data[flame_X]"]').val("640px");
+
   //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
   $('form').on('change', 'input[type="file"]', function(e) {
-
-
 
     var file = e.target.files[0];
         reader = new FileReader();
@@ -39,9 +59,8 @@ $(function(){
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
         $preview.append($('<img>').attr({
                   src: e.target.result,
-                  width: "320px",
-                  height: "200px",
-                  class: "material",
+                  width: "100%",
+                  height: "100%",
                   title: file.name
               }));
       };

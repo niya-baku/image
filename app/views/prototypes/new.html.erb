@@ -4,32 +4,33 @@
     <%= form_for @prototype do |f| %>
 		<%= f.fields_for :thumbnails do |thumbnail| %>
 		   <li class="btn"><%= thumbnail.file_field :image %></li>
-
-
 		<% end %>
+
+    <%= hidden_field :data, :flame_X %>
 	    <%= f.submit "Submit" %>
     <% end %>
   </div>
 
 
-  <div =class="form-inline">
+<div class="form-inline">
   <label class="checkbox-inline"><input type="radio" name="radio" value="1" id="length" checked>縦に並べる</label>
   <label class="checkbox-inline"><input type="radio" name="radio" value="2" id="side" >横に並べる</label>
 </div>
 
+X:<input type="number" name="X-size" value="640" />
+Y:<input type="number" name="Y-size" value="640" />
+
+画像１
+位置X:<input type="number" name="X-position-1" value="0" />
+位置Y:<input type="number" name="Y-position-1" value="0" />
+横幅:<input type="number" name="X-size-1" value="320" />
+縦幅:<input type="number" name="Y-size-1" value="320" />
 
   <div class="preview" >
-    <div class="material_1"></div>
-    <div class="material_2"></div>
-    <div class="material_3"></div>
-    <div class="material_4"></div>
-  </div>
-
-  <div class="preview2">
-      <div class="material_1"></div>
-      <div class="material_2"></div>
-      <div class="material_3"></div>
-      <div class="material_4"></div>
+    <div class="material material_1"></div>
+    <div class="material material_2"></div>
+    <div class="material material_3"></div>
+    <div class="material material_4"></div>
   </div>
 
   </form>
