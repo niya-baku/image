@@ -1,12 +1,7 @@
+
 $(function() {
   $('[name="radio"]:radio').change( function() {
-    if($('[id=length]').prop('checked')){
-      $('.preview2').fadeOut();
-      $('.preview').fadeIn();
-    } else if ($('[id=side]').prop('checked')) {
-      $('.preview').fadeOut();
-      $('.preview2').fadeIn();
-    }
+
   });
 });
 
