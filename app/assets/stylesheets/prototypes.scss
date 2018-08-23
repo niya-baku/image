@@ -1,12 +1,21 @@
 // Place all the styles related to the prototypes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.top-main{
+  background-color:#CBFFD3;
+}
+
+.multiple{
+  list-style:none;
+}
 
 .preview{
-  border: solid 1px black;
-  height: 640px;
-  width:  640px;
+  border: solid 10px #C0C0C0;
+  margin: 10px auto;
+  height: 900px;
+  width:  900px;
  display: block;
+ background-image: url("/CorkBoard.jpg");
  position: relative;
 }
 
@@ -17,11 +26,17 @@
   display: none;
 }
 
+.preview3{
+  border: solid 1px black;
+  height: 320px;
+  width:  1280px;
+  display: none;
+}
 
 .material{
 	position: absolute;
-	width: 320px;
-	height: 320px;
+	width: 300px;
+	height: 300px;
 }
 
 .material_1{
@@ -30,14 +45,14 @@
 }
 
 .material_2{
-  left: 320px;
+  left: 300px;
 }
 
 .material_3{
-  top: 320px;
+  top: 300px;
 }
 
 .material_4{
-  top: 320px;
-  left: 320px;
+  top: 300px;
+  left: 300px;
 }

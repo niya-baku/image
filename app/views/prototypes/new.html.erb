@@ -1,21 +1,31 @@
+<div class="top-main">
 
+<body>
 <from>
-<div>
-    <%= form_for @prototype do |f| %>
-		<%= f.fields_for :thumbnails do |thumbnail| %>
-		   <li class="btn"><%= thumbnail.file_field :image %></li>
-
-
-		<% end %>
+  <div class="multiple">
+      <%= form_for @prototype do |f| %>
+		      <%= f.fields_for :thumbnails do |thumbnail| %>
+		        <li class="btn" style="display:inline"><%= thumbnail.file_field :image %></li>
+      <% end %>
+    <%= hidden_field :data, :flame_X %>
 	    <%= f.submit "Submit" %>
     <% end %>
   </div>
 
+  X:<input type="number" name="X-size" value="640" />
+  Y:<input type="number" name="Y-size" value="640" />
 
-<div class="form-inline">
-  <label class="checkbox-inline"><input type="radio" name="radio" value="1" id="length" checked>縦に並べる</label>
-  <label class="checkbox-inline"><input type="radio" name="radio" value="2" id="side" >横に並べる</label>
-</div>
+  画像１
+  位置X:<input type="number" name="X-position-1" value="0" />
+  位置Y:<input type="number" name="Y-position-1" value="0" />
+  横幅:<input type="number" name="X-size-1" value="320" />
+  縦幅:<input type="number" name="Y-size-1" value="320" />
+
+  <!---<div class="form-inline">
+    <label class="checkbox-inline"><input type="radio" name="radio" value="1" id="Cork" checked>パターン1</label>
+    <label class="checkbox-inline"><input type="radio" name="radio" value="2" id="black" >パターン2</label>
+    <label class="checkbox-inline"><input type="radio" name="radio" value="3" id="side" >画像を選択してください</label>
+  </div>--->
 
 
 <div class="preview" >
@@ -26,5 +36,6 @@
 </div>
 
 
-
   </form>
+</body>
+</div>
