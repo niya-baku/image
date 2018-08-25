@@ -1,3 +1,12 @@
+$(function() {
+   $( "#jquery-ui-resizable" ).resizable();
+ } );
+
+$(function() {
+    $('#jquery-ui-draggable').draggable();
+} );
+
+
 
 $(function() {
   $('[name="radio"]:radio').change( function() {
