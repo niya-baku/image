@@ -1,5 +1,5 @@
 $(function() {
-   $( "#jquery-ui-resizable" ).resizable();
+   $( "#resizable" ).resizable();;
  } );
 
 $(function() {
@@ -20,19 +20,31 @@ $(function(){
   });
 
   $(function() {
-      $('#jquery-ui-draggable').draggable();
+      $('#jquery-ui-draggable').draggable({
+        containment: ".preview",
+        scroll: false,
+      });
   } );
 
   $(function() {
-      $('#jquery-ui-draggable2').draggable();
+      $('#jquery-ui-draggable2').draggable({
+        containment: ".preview",
+        scroll: false,
+      });
   } );
 
   $(function() {
-      $('#jquery-ui-draggable3').draggable();
+      $('#jquery-ui-draggable3').draggable({
+        containment: ".preview",
+        scroll: false,
+      });
   } );
 
   $(function() {
-      $('#jquery-ui-draggable4').draggable();
+      $('#jquery-ui-draggable4').draggable({
+        containment: ".preview",
+        scroll: false,
+      });
   } );
 
   $('input[name="data[flame_X]"]').val("640px");
