@@ -3,7 +3,7 @@ $(function() {
  } );
 
 $(function() {
-    $('#jquery-ui-draggable').draggable();
+    $('#jquery-ui-draggable1').draggable();
 } );
 
 
@@ -15,35 +15,29 @@ $(function() {
 });
 
 $(function(){
-  $('input[name="X-size-1"]').change(function(){
-    $('.material_1').css('width',$(this).val() + 'px');
-  });
-   $('input[name="Y-size-1"]').change(function(){
-    $('.material_1').css('height',$(this).val() + 'px');
-  });
-   $('input[name="X-position-1"]').change(function(){
-    $('.material_1').css('left',$(this).val() + 'px');
-  });
-   $('input[name="Y-position-1"]').change(function(){
-    $('.material_1').css('top',$(this).val() + 'px');
-  });
-   $('input[name="X-size"]').change(function(){
-    $('.preview').css('width',$(this).val() + 'px');
-    $('input[name="data[flame_X]"]').val($(this).val() + 'px');
-  });
-   $('input[name="Y-size"]').change(function(){
-    $('.preview').css('height',$(this).val() + 'px');
-  });
-
   $('li').on('click', function () {
     index = $('li.btn').index(this);
   });
 
+  $(function() {
+      $('#jquery-ui-draggable').draggable();
+  } );
+
+  $(function() {
+      $('#jquery-ui-draggable2').draggable();
+  } );
+
+  $(function() {
+      $('#jquery-ui-draggable3').draggable();
+  } );
+
+  $(function() {
+      $('#jquery-ui-draggable4').draggable();
+  } );
+
   $('input[name="data[flame_X]"]').val("640px");
   //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
   $('form').on('change', 'input[type="file"]', function(e) {
-
-
 
     var file = e.target.files[0];
         reader = new FileReader();

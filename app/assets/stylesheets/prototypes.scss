@@ -19,12 +19,28 @@
  position: relative;
 }
 
-#jquery-ui-draggable {
+#jquery-ui-draggable1 {
     width: 100px;
     height: 100px;
     padding: 50px;
     margin: 0;
-    border: solid 10px #C0C0C0;
+    background-image: url("/CorkBoard.jpg");
+}
+
+#jquery-ui-draggable {
+  position: relative;
+}
+
+#jquery-ui-draggable2 {
+  position: relative;
+}
+
+#jquery-ui-draggable3 {
+  position: relative;
+}
+
+#jquery-ui-draggable4 {
+  position: relative;
 }
 
 #jquery-ui-resizable {
@@ -46,19 +62,17 @@
 }
 
 .material_1{
-	left:0;
-	top:0;
+
 }
 
 .material_2{
-  left: 300px;
+
 }
 
 .material_3{
-  top: 300px;
+
 }
 
 .material_4{
-  top: 300px;
-  left: 300px;
+
 }
