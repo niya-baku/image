@@ -1,9 +1,9 @@
 $(function() {
-   $( "#resizable" ).resizable();;
+   $( '#jquery-ui-resizable' ).resizable();
  } );
 
 $(function() {
-    $('#jquery-ui-draggable1').draggable();
+    $('#jquery-ui-draggable1').draggable().resizable();
 } );
 
 
@@ -23,7 +23,7 @@ $(function(){
       $('#jquery-ui-draggable').draggable({
         containment: ".preview",
         scroll: false,
-      });
+      }).resizable();
   } );
 
   $(function() {
@@ -47,7 +47,13 @@ $(function(){
       });
   } );
 
-  $('input[name="data[flame_X]"]').val("640px");
+  $('input[name="X-size"]').change(function(){
+   $('.preview').css('width',$(this).val() + 'px');
+   $('input[name="data[flame_X]"]').val($(this).val() + 'px');
+ });
+  $('input[name="Y-size"]').change(function(){
+   $('.preview').css('height',$(this).val() + 'px');
+ });
   //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
   $('form').on('change', 'input[type="file"]', function(e) {
 

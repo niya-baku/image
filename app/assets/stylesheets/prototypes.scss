@@ -12,8 +12,8 @@
 .preview{
   border: solid 10px #C0C0C0;
   margin: 10px auto;
-  height: 900px;
-  width:  900px;
+  height: 1000px;
+  width:  1000px;
  display: block;
  background-image: url("/CorkBoard.jpg");
  position: relative;
@@ -43,18 +43,22 @@
   position: relative;
 }
 
-#resizable {
+#jquery-ui-resizable {
     width: 300px;
     height: 100px;
     padding: 0.5em;
-      border: solid 10px #C0C0C0;
+    border: solid 10px #C0C0C0;
+}
+#jquery-ui-resizable h3 {
+    text-align: center;
+    margin: 0px 0px 0.5em 0px;
 }
 
 
 .material{
 	position: absolute;
 	width: 300px;
-	height: 300px;
+	height: 200px;
 }
 
 .material_1{
@@ -63,14 +67,16 @@
 }
 
 .material_2{
-  left: 300px;
+  left:0;
+	top:0;
 }
 
 .material_3{
-  top: 300px;
+  left:0;
+	top:0;
 }
 
 .material_4{
-  top: 300px;
-  left: 300px;
+  left:0;
+	top:0;
 }
