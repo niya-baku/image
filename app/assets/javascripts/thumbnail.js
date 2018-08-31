@@ -19,33 +19,6 @@ $(function(){
     index = $('li.btn').index(this);
   });
 
-  $(function() {
-      $('#jquery-ui-draggable').draggable({
-        containment: ".preview",
-        scroll: false,
-      }).resizable();
-  } );
-
-  $(function() {
-      $('#jquery-ui-draggable2').draggable({
-        containment: ".preview",
-        scroll: false,
-      });
-  } );
-
-  $(function() {
-      $('#jquery-ui-draggable3').draggable({
-        containment: ".preview",
-        scroll: false,
-      });
-  } );
-
-  $(function() {
-      $('#jquery-ui-draggable4').draggable({
-        containment: ".preview",
-        scroll: false,
-      });
-  } );
 
   $('input[name="X-size"]').change(function(){
    $('.preview').css('width',$(this).val() + 'px');
@@ -76,11 +49,19 @@ $(function(){
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
         $preview.append($('<img>').attr({
                   src: e.target.result,
-                  width: "320px",
+                  width: "300px",
                   height: "200px",
-                  class: "material",
+                  class: "img",
                   title: file.name
               }));
+        $('.img').resizable({
+          containment: ".preview",
+        });
+        $preview.draggable({
+          containment: ".preview",
+
+
+        });
       };
     })(file);
 
