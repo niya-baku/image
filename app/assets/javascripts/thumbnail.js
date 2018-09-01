@@ -1,4 +1,14 @@
 $(function() {
+   $( '#jquery-ui-resizable' ).resizable();
+ } );
+
+$(function() {
+    $('#jquery-ui-draggable1').draggable().resizable();
+} );
+
+
+
+$(function() {
   $('[name="radio"]:radio').change( function() {
 
   });
@@ -35,8 +45,14 @@ $(function(){
     index = $('li.btn').index(this);
   });
 
-  $('input[name="data[flame_X]"]').val("640px");
 
+  $('input[name="X-size"]').change(function(){
+   $('.preview').css('width',$(this).val() + 'px');
+   $('input[name="data[flame_X]"]').val($(this).val() + 'px');
+ });
+  $('input[name="Y-size"]').change(function(){
+   $('.preview').css('height',$(this).val() + 'px');
+ });
   //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
   $('form').on('change', 'input[type="file"]', function(e) {
 
@@ -59,10 +75,19 @@ $(function(){
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
         $preview.append($('<img>').attr({
                   src: e.target.result,
-                  width: "100%",
-                  height: "100%",
+                  width: "300px",
+                  height: "200px",
+                  class: "img",
                   title: file.name
               }));
+        $('.img').resizable({
+          containment: ".preview",
+        });
+        $preview.draggable({
+          containment: ".preview",
+
+
+        });
       };
     })(file);
 

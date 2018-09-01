@@ -1,20 +1,85 @@
 // Place all the styles related to the prototypes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.top-main{
+}
+
+.multiple{
+  list-style:none;
+}
 
 .preview{
-  border: solid 1px black;
-  height: 640px;
-  width:  640px;
-  display: block;
+  border: solid 10px #C0C0C0;
+  margin: 10px auto;
+  width:  1280px;
+  height: 1000px;
+ display: block;
+
+ position: relative;
+}
+
+#jquery-ui-draggable1 {
+    width: 100px;
+    height: 100px;
+    padding: 50px;
+    margin: 0;
+    background-image: url("/CorkBoard.jpg");
+}
+
+#jquery-ui-draggable {
   position: relative;
 }
 
-.preview2{
-  border: solid 1px black;
-  height: 320px;
-  width:  1280px;
-  display: none;
+#jquery-ui-draggable2 {
+  position: relative;
+}
+
+#jquery-ui-draggable3 {
+  position: relative;
+}
+
+#jquery-ui-draggable4 {
+  position: relative;
+}
+
+
+
+#jquery-ui-resizable {
+    width: 300px;
+    height: 100px;
+    padding: 0.5em;
+    border: solid 10px #C0C0C0;
+}
+#jquery-ui-resizable h3 {
+    text-align: center;
+    margin: 0px 0px 0.5em 0px;
+}
+
+
+.material{
+	position: absolute;
+	width: 300px;
+	height: 200px;
+}
+
+.material_1{
+	left:0;
+	top:0;
+}
+
+.material_2{
+  left:300px;
+	top:0;
+}
+
+.material_3{
+  left:0;
+	top:300px;
+}
+
+.material_4{
+  left:300px;
+	top:300px;
 }
 
 .material{
