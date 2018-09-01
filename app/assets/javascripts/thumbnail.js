@@ -49,7 +49,7 @@ $(function(){
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
         $preview.append($('<img>').attr({
                   src: e.target.result,
-                  width: "300px",
+                  width: "320px",
                   height: "200px",
                   class: "img",
                   title: file.name
@@ -59,7 +59,6 @@ $(function(){
         });
         $preview.draggable({
           containment: ".preview",
-
 
         });
       };
