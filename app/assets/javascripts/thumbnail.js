@@ -9,11 +9,13 @@ $(function() {
 
 
 $(function() {
-  $('[name="radio"]:radio').change( function() {
+  $( 'input[name="optionsRadios"]:radio' ).change( function() {
+    var radioval = $(this).val();
 
   });
 });
 
+//各ファイル選択によって画像を表示するイベント追加
 $(function(){
   $('li').on('click', function () {
     index = $('li.btn').index(this);

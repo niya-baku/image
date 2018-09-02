@@ -15,16 +15,25 @@
   <div class="multiple">
       <%= form_for @prototype do |f| %>
 		      <%= f.fields_for :thumbnails do |thumbnail| %>
-		        <li class="btn" style="display:inline"><%= thumbnail.file_field :image %></li>
+          <label id="submit">
+		        <li class="btn" style="display:inline">画像選択&hellip;<%= thumbnail.file_field :image, id: "submit", style: "display:none;"%></li>
+          </label>
       <% end %>
     <%= hidden_field :data, :flame_X %>
-	    <%= f.submit "Submit" %>
+	    <%= f.submit  "ダウンロード画面へ", id: "submit" %>
     <% end %>
   </div>
 
   X:<input type="number" name="X-size" value="1280" />
   Y:<input type="number" name="Y-size" value="1000" />
 
+  <div class="radio">
+    <label><input type="radio" name="optionsRadios" id="optionsRadios1" value="1">:test1</label>
+    <label><input type="radio" name="optionsRadios" id="optionsRadios1" value="2">:test2</label>
+    <label><input type="radio" name="optionsRadios" id="optionsRadios1" value="3">:test3</label>
+    <label><input type="radio" name="optionsRadios" id="optionsRadios1" value="4">:test4</label>
+    <label><input type="radio" name="optionsRadios" id="optionsRadios1" value="4">:フリー</label>
+  </div>
   <!--画像１
   位置X:<input type="number" name="X-position-1" value="0" />
   位置Y:<input type="number" name="Y-position-1" value="0" />
@@ -37,7 +46,7 @@
     <label class="checkbox-inline"><input type="radio" name="radio" value="3" id="side" >画像を選択してください</label>
   </div>--->
 
-  <div id="jquery-ui-draggable1" class="ui-widget-content">
+  <!---<div id="jquery-ui-draggable1" class="ui-widget-content">
       <p>ドラッグして<br />移動できる<br />ボックス。</p>
   </div>
 
@@ -45,6 +54,13 @@
     <h3 class="ui-widget-header">Resizable</h3>
     <p>このボックスは、サイズを変更できる。</p>
 </div>
+
+<dl id="images">
+    <dt id="dt1"><img src="neko2.jpg" alt="猫0" width="200" height="200"></dt>
+    <dd id="dd1"><p>＜　ごはんまだかな？</p></dd>
+    <dt id="dt2"><img src="neko1.jpg" alt="猫1" width="200" height="200"></dt>
+    <dd id="dd2"><p>少しの辛抱にゃ　＞</p></dd>
+</dl>--->
 
 <div class="preview">
     <div class="material material_1"></div>
