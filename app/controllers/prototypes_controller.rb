@@ -5,11 +5,11 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    @prototype = Prototype.create(create_params)
+    @prototype = Prototype.new(create_params)
 
     respond_to do |format|
       if @prototype.save
-        format.html { redirect_to :action => "new" }
+        format.html { redirect_to :action => "show" }
         format.json { render :show, status: :created, location: @prototype }
       else
         format.html { render :new }
@@ -18,6 +18,9 @@ class PrototypesController < ApplicationController
     end
   end
 
+  def show
+  end
+  
   private
     def create_params
       params.require(:prototype).permit(thumbnails_attributes: [:image])

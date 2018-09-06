@@ -1,11 +1,8 @@
-$(function() {
-   $( '#jquery-ui-resizable' ).resizable();
- } );
-
-$(function() {
-    $('#jquery-ui-draggable1').draggable().resizable();
-} );
-
+/*$('#on').click(function(e) {
+  //div要素から配列にする
+  var arr = $.makeArray($('.material'));
+  console.log(arr);
+});*/
 
 
 $(function() {
@@ -20,8 +17,17 @@ $(function(){
   $('li').on('click', function () {
     index = $('li.btn').index(this);
   });
+    // ボタンクリックで画像サイズを更新
+  $('#btn').click(function(e) {
+    var b = $('.material_' + (index+1));
+    console.log('画像サイズ：' + b.height() + '×' + b.width());
 
-
+    var t = $(".material_" + (index+1)).css("top");
+    var l = $(".material_" + (index+1)).css("left");
+    console.log("top:" + t);
+    console.log("left:" + l);
+    });
+  //preview内のサイズ変更イベント
   $('input[name="X-size"]').change(function(){
    $('.preview').css('width',$(this).val() + 'px');
    $('input[name="data[flame_X]"]').val($(this).val() + 'px');

@@ -1,6 +1,13 @@
 <p>
   <strong>Image:</strong>
-    <%= form_for @prototype do |f| %>
-    <%= f.fields_for :thumbnails do |thumbnail| %>
+
     <%= image_tag @prototype.image_url(:thumb) %>
 </p>
+
+
+<div class="preview">
+    <div class="material material_1"></div>
+    <div class="material material_2"></div>
+    <div class="material material_3"></div>
+    <div class="material material_4"></div>
+</div>
