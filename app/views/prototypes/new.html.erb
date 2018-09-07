@@ -4,7 +4,6 @@
 <div class="top-main">
 
 <button id="btn">サイズ表示</button>
-<button id="on">test表示</button>
 
 <from>
   <div class="multiple">
@@ -14,7 +13,7 @@
 		        <li class="btn" style="display:inline">画像選択&hellip;<%= thumbnail.file_field :image, id: "submit", style: "display:none;"%></li>
           </label>
       <% end %>
-    <%= hidden_field :data, :flame_X %>
+    <%= hidden_field :data, :value => "array" %>
 	    <%= f.submit  "ダウンロード画面へ", id: "submit" %>
     <% end %>
   </div>

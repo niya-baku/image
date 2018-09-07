@@ -6,6 +6,7 @@ class PrototypesController < ApplicationController
 
   def create
     @prototype = Prototype.new(create_params)
+    puts(@prototype)
 
     respond_to do |format|
       if @prototype.save
@@ -20,9 +21,9 @@ class PrototypesController < ApplicationController
 
   def show
   end
-  
+
   private
     def create_params
-      params.require(:prototype).permit(thumbnails_attributes: [:image])
+      params.require(:prototype).permit(thumbnails_attributes: [:image],:data)
     end
 end

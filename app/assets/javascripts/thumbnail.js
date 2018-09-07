@@ -35,7 +35,7 @@ $(function(){
 
     array[index] = {h,w,t,l}
     console.log(array);
-    console.log(array[0]);
+    //console.log(array[0]);
     });
   //preview内のサイズ変更イベント
   $('input[name="X-size"]').change(function(){
