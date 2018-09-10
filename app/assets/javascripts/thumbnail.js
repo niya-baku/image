@@ -34,16 +34,20 @@ $(function(){
       var h = $('.material_' + (index+1)).height();
       var w = $('.material_' + (index+1)).width();
       var t = $(".material_" + (index+1)).css("top");
+      var ti = parseFloat( t );
       var l = $(".material_" + (index+1)).css("left");
-      array[index] = {h,w,t,l}
+      var li = parseFloat( l );
+      array[index] = [h,w,ti,li]
       console.log(array[0]);
     })
     .mouseup(function(){
       var h = $('.material_' + (index+1)).height();
       var w = $('.material_' + (index+1)).width();
       var t = $(".material_" + (index+1)).css("top");
+      var ti = parseFloat( t );
       var l = $(".material_" + (index+1)).css("left");
-      array[index] = {h,w,t,l}
+      var li = parseFloat( l );;
+      array[index] = [h,w,ti,li]
       console.log(array[0]);
     })
   });
@@ -102,9 +106,12 @@ $(function(){
         var h = $preview.height();
         var w = $preview.width();
         var t = $preview.css("top");
+        var ti = parseFloat( t );
         var l = $preview.css("left");
-              array[index] = {h,w,t,l}
-              console.log(array);
+        var li = parseFloat( l );
+            array[index] = [h,w,ti,li]
+            console.log(array);
+        //読み込み後に画像の移動とリサイズが可能
         $('.img').resizable({
           containment: ".preview",
         });
