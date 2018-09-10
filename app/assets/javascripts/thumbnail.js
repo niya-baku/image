@@ -36,10 +36,15 @@ $(function(){
       var t = $(".material_" + (index+1)).css("top");
       var l = $(".material_" + (index+1)).css("left");
       array[index] = {h,w,t,l}
-      console.log(array);
+      console.log(array[0]);
     })
     .mouseup(function(){
-
+      var h = $('.material_' + (index+1)).height();
+      var w = $('.material_' + (index+1)).width();
+      var t = $(".material_" + (index+1)).css("top");
+      var l = $(".material_" + (index+1)).css("left");
+      array[index] = {h,w,t,l}
+      console.log(array[0]);
     })
   });
 /*
@@ -74,12 +79,7 @@ $(function(){
         reader = new FileReader();
         preview_class = (".material_" + (index+1));
         $preview = $(preview_class);
-        var h = $('.material_' + (index+1)).height();
-        var w = $('.material_' + (index+1)).width();
-        var t = $(".material_" + (index+1)).css("top");
-        var l = $(".material_" + (index+1)).css("left");
-        array[index] = {h,w,t,l}
-        console.log(array);
+
 
     // 画像ファイル以外の場合は何もしない
     if(file.type.indexOf("image") < 0){
@@ -99,6 +99,12 @@ $(function(){
                   class: "img",
                   title: file.name
               }));
+        var h = $preview.height();
+        var w = $preview.width();
+        var t = $preview.css("top");
+        var l = $preview.css("left");
+              array[index] = {h,w,t,l}
+              console.log(array);
         $('.img').resizable({
           containment: ".preview",
         });
