@@ -3,7 +3,12 @@
   var arr = $.makeArray($('.material'));
   console.log(arr);
 });*/
-
+/*
+$(function(){
+$('#size').click(function(e) {
+  console.log(array);
+    });
+});*/
 
 $(function() {
   $( 'input[name="optionsRadios"]:radio' ).change( function() {
@@ -20,23 +25,40 @@ $(function() {
 $(function(){
   $('li').on('click', function () {
     index = $('li.btn').index(this);
+
   });
+
+  $(function(){
+    $('.material')
+    .mousedown(function(){
+      var h = $('.material_' + (index+1)).height();
+      var w = $('.material_' + (index+1)).width();
+      var t = $(".material_" + (index+1)).css("top");
+      var l = $(".material_" + (index+1)).css("left");
+      array[index] = {h,w,t,l}
+      console.log(array);
+    })
+    .mouseup(function(){
+
+    })
+  });
+/*
     // ボタンクリックで画像サイズを更新
-  $('#btn').click(function(e) {
+  $('#size').click(function(e) {
     var h = $('.material_' + (index+1)).height();
     var w = $('.material_' + (index+1)).width();
 
-    console.log('画像サイズ：' + h + "×" + w);
+    //console.log('画像サイズ：' + h + "×" + w);
 
     var t = $(".material_" + (index+1)).css("top");
     var l = $(".material_" + (index+1)).css("left");
-    console.log("top:" + t);
-    console.log("left:" + l);
+    //console.log("top:" + t);
+    //console.log("left:" + l);
 
     array[index] = {h,w,t,l}
     console.log(array);
-    //console.log(array[0]);
-    });
+
+  });*/
   //preview内のサイズ変更イベント
   $('input[name="X-size"]').change(function(){
    $('.preview').css('width',$(this).val() + 'px');
@@ -52,7 +74,12 @@ $(function(){
         reader = new FileReader();
         preview_class = (".material_" + (index+1));
         $preview = $(preview_class);
-
+        var h = $('.material_' + (index+1)).height();
+        var w = $('.material_' + (index+1)).width();
+        var t = $(".material_" + (index+1)).css("top");
+        var l = $(".material_" + (index+1)).css("left");
+        array[index] = {h,w,t,l}
+        console.log(array);
 
     // 画像ファイル以外の場合は何もしない
     if(file.type.indexOf("image") < 0){
