@@ -10,7 +10,7 @@ class PrototypesController < ApplicationController
 
     respond_to do |format|
       if @prototype.save
-        format.html { redirect_to :action => "show" }
+        format.html { redirect_to :action => "show",:id => Prototype.last.id }
         format.json { render :show, status: :created, location: @prototype }
       else
         format.html { render :new }
@@ -20,6 +20,7 @@ class PrototypesController < ApplicationController
   end
 
   def show
+    @prototype = Prototype.find(params[:id])
   end
 
 

@@ -9,6 +9,10 @@ $('#size').click(function(e) {
   console.log(array);
     });
 });*/
+$(function() {
+data = $('.data').val();
+});
+
 
 $(function() {
   $( 'input[name="optionsRadios"]:radio' ).change( function() {
