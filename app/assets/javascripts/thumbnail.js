@@ -21,14 +21,13 @@ $(function() {
 });
 
 //各画像情報で使用する配列の作成
-  var array = [];
+  var array = new Array(4);
   console.log( array );
 
 //各ファイル選択によって画像を表示するイベント追加
 $(function(){
   $('li').on('click', function () {
     index = $('li.btn').index(this);
-
   });
 
   $(function(){
@@ -41,8 +40,8 @@ $(function(){
       var l = $(".material_" + (index+1)).css("left");
       var li = parseFloat( l );
       array[index] = [h,w,ti,li];
-      console.log(array);
-      data = parseInt($('#data').val(array));
+      //console.log(array[0]);
+      data = parseInt($('#data').val(array[index]));
       console.log(document.getElementById('data'));
     })
     .mouseup(function(){
@@ -53,8 +52,8 @@ $(function(){
       var l = $(".material_" + (index+1)).css("left");
       var li = parseFloat( l );
       array[index] = [h,w,ti,li];
-      console.log(array);
-      data = parseInt($('#data').val(array));
+      console.log(array[0]);
+      data = parseInt($('#data').val(array[index]));
       console.log(document.getElementById('data'));
     })
   });
@@ -94,7 +93,6 @@ $(function(){
         preview_class = (".material_" + (index+1));
         $preview = $(preview_class);
 
-
     // 画像ファイル以外の場合は何もしない
     if(file.type.indexOf("image") < 0){
       return false;
@@ -121,7 +119,7 @@ $(function(){
         var li = parseFloat( l );
             array[index] = [h,w,ti,li]
             console.log(array);
-            data = parseInt($('#data').val(array));
+            data = parseInt($('#data').val(array[index]));
             console.log(document.getElementById('data'));
         //読み込み後に画像の移動とリサイズが可能
         $('.img').resizable({

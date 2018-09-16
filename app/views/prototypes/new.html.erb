@@ -14,7 +14,10 @@
 		        <li class="btn" style="display:inline">画像選択&hellip;<%= thumbnail.file_field :image, id: "submit", style: "display:none;"%></li>
           </label>
       <% end %>
-    <%= hidden_field :data, :image1 , :value => "" , id: 'data' %>
+    <%= hidden_field :data, :image , :value => "" , id: 'data' %>
+    <%= hidden_field :data, :image , :value => "" , id: 'data_2' %>
+    <%= hidden_field :data, :image , :value => "" , id: 'data_3' %>
+    <%= hidden_field :data, :image , :value => "" , id: 'data_4' %>
 	    <%= f.submit  "ダウンロード画面へ", id: "submit" %>
     <% end %>
   </div>
