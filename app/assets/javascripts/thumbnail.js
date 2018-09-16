@@ -9,10 +9,6 @@ $('#size').click(function(e) {
   console.log(array);
     });
 });*/
-
-
-
-
 $(function() {
   $( 'input[name="optionsRadios"]:radio' ).change( function() {
     var radioval = $(this).val();
@@ -41,7 +37,7 @@ $(function(){
       var li = parseFloat( l );
       array[index] = [h,w,ti,li];
       //console.log(array[0]);
-      data = parseInt($('#data').val(array[index]));
+      data = parseInt($('#data_' + (index+1)).val(array[index]));
       console.log(document.getElementById('data'));
     })
     .mouseup(function(){
@@ -53,7 +49,7 @@ $(function(){
       var li = parseFloat( l );
       array[index] = [h,w,ti,li];
       console.log(array[0]);
-      data = parseInt($('#data').val(array[index]));
+      data = parseInt($('#data_' + (index+1)).val(array[index]));
       console.log(document.getElementById('data'));
     })
   });
@@ -119,7 +115,7 @@ $(function(){
         var li = parseFloat( l );
             array[index] = [h,w,ti,li]
             console.log(array);
-            data = parseInt($('#data').val(array[index]));
+            data = parseInt($('#data_' + (index+1)).val(array[index]));
             console.log(document.getElementById('data'));
         //読み込み後に画像の移動とリサイズが可能
         $('.img').resizable({
