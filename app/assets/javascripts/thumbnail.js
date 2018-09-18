@@ -29,16 +29,8 @@ $(function(){
   $(function(){
     $('.material')
     .mousedown(function(){
-      var h = $('.material_' + (index+1)).height();
-      var w = $('.material_' + (index+1)).width();
-      var t = $(".material_" + (index+1)).css("top");
-      var ti = parseFloat( t );
-      var l = $(".material_" + (index+1)).css("left");
-      var li = parseFloat( l );
-      array[index] = [h,w,ti,li];
-      //console.log(array[0]);
-      data = parseInt($('#data_' + (index+1)).val(array[index]));
-      console.log(document.getElementById('data'));
+      index = $('.material').index(this); // classの値を取得
+      console.log(index);
     })
     .mouseup(function(){
       var h = $('.material_' + (index+1)).height();
@@ -48,7 +40,7 @@ $(function(){
       var l = $(".material_" + (index+1)).css("left");
       var li = parseFloat( l );
       array[index] = [h,w,ti,li];
-      console.log(array[0]);
+      console.log(array);
       data = parseInt($('#data_' + (index+1)).val(array[index]));
       console.log(document.getElementById('data'));
     })
@@ -56,22 +48,10 @@ $(function(){
 
     // ボタンクリックで画像サイズを更新
   $('#size').click(function(e) {
+    console.log(array);
     data = parseInt($('#data').val(array));
     console.log(document.getElementById('data'));
 
-  /*  var h = $('.material_' + (index+1)).height();
-    var w = $('.material_' + (index+1)).width();
-
-    //console.log('画像サイズ：' + h + "×" + w);
-
-    var t = $(".material_" + (index+1)).css("top");
-    var l = $(".material_" + (index+1)).css("left");
-    //console.log("top:" + t);
-    //console.log("left:" + l);
-
-    array[index] = {h,w,t,l}
-    console.log(array);
-    */
   });
   //preview内のサイズ変更イベント
   $('input[name="X-size"]').change(function(){
@@ -115,8 +95,8 @@ $(function(){
         var li = parseFloat( l );
             array[index] = [h,w,ti,li]
             console.log(array);
-            data = parseInt($('#data_' + (index+1)).val(array[index]));
-            console.log(document.getElementById('data'));
+            //data = parseInt($('#data_' + (index+1)).val(array[index]));
+            //console.log(document.getElementById('data'));
         //読み込み後に画像の移動とリサイズが可能
         $('.img').resizable({
           containment: ".preview",
@@ -131,4 +111,3 @@ $(function(){
     reader.readAsDataURL(file);
   });
 });
-//$(this).next(".material");
