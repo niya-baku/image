@@ -6,7 +6,6 @@ class PrototypesController < ApplicationController
 
   def create
     @prototype = Prototype.new(create_params)
-    puts(params["data"])
 
     respond_to do |format|
       if @prototype.save

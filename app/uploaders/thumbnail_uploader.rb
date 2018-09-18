@@ -1,11 +1,14 @@
 class ThumbnailUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+   include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
+
+  # 保存形式をjpgに設定
+  process :convert => 'jpg'
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -27,6 +30,9 @@ class ThumbnailUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+
+  #　画像の大きさを設定する
+  process :resize_to_fit => [300, 200]
 
   # Create different versions of your uploaded files:
    #version :thumb do
