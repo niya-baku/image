@@ -7,8 +7,13 @@ class PrototypesController < ApplicationController
   def create
     @prototype = Prototype.new(create_params)
 
+
+    puts("ここにputsしたものが表示されるよ！！")
+    puts(params["data"]["image"])
+    #puts(create_params)
     respond_to do |format|
       if @prototype.save
+
         format.html { redirect_to :action => "show",:id => Prototype.last.id }
         format.json { render :show, status: :created, location: @prototype }
       else
@@ -21,7 +26,6 @@ class PrototypesController < ApplicationController
   def show
     @prototype = Prototype.find(params[:id])
   end
-
 
   private
     def create_params

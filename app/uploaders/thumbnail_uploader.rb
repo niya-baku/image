@@ -32,11 +32,12 @@ class ThumbnailUploader < CarrierWave::Uploader::Base
   # end
 
   #　画像の大きさを設定する
-  process :resize_to_fit => [300, 200]
+  process resize_to_fill: [320,200]
+  
 
   # Create different versions of your uploaded files:
-   #version :thumb do
-    # process resize_to_fit: [200, 200]
+  #version :thumb do
+     #process resize_to_fill: [200,200]
    #end
 
   # Add a white list of extensions which are allowed to be uploaded.

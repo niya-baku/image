@@ -25,7 +25,7 @@ $(function(){
   $('li').on('click', function () {
     index = $('li.btn').index(this);
   });
-
+//各画像を選択した際に画像の情報を取得
   $(function(){
     $('.material')
     .mousedown(function(){
@@ -42,17 +42,9 @@ $(function(){
       array[index] = [h,w,ti,li];
       console.log(array);
       data = parseInt($('#data_' + (index+1)).val(array[index]));
-      console.log(document.getElementById('data'));
     })
   });
 
-    // ボタンクリックで画像サイズを更新
-  $('#size').click(function(e) {
-    console.log(array);
-    data = parseInt($('#data').val(array));
-    console.log(document.getElementById('data'));
-
-  });
   //preview内のサイズ変更イベント
   $('input[name="X-size"]').change(function(){
    $('.preview').css('width',$(this).val() + 'px');
@@ -87,6 +79,7 @@ $(function(){
                   class: "img",
                   title: file.name
               }));
+        //画像の縦横比と位置情報を整数として取得する
         var h = $preview.height();
         var w = $preview.width();
         var t = $preview.css("top");
