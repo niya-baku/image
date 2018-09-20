@@ -9,7 +9,7 @@ class PrototypesController < ApplicationController
 
 
     puts("ここにputsしたものが表示されるよ！！")
-    puts(params["data"]["image"])
+    puts(params[:data])
     #puts(create_params)
     respond_to do |format|
       if @prototype.save
