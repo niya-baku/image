@@ -60,7 +60,8 @@ $(function(){
         reader = new FileReader();
         preview_class = (".material_" + (index+1));
         $preview = $(preview_class);
-
+        data_id = ("#data_" + (index+1));
+        $data_in = $(data_id);
     // 画像ファイル以外の場合は何もしない
     if(file.type.indexOf("image") < 0){
       return false;
@@ -88,7 +89,7 @@ $(function(){
         var li = parseFloat( l );
             array[index] = [h,w,ti,li]
             console.log(array);
-            //data = parseInt($('#data_' + (index+1)).val(array[index]));
+            data = parseInt($data_in.val(array[index]));
             //console.log(document.getElementById('data'));
         //読み込み後に画像の移動とリサイズが可能
         $('.img').resizable({
