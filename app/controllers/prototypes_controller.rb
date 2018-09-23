@@ -10,7 +10,13 @@ class PrototypesController < ApplicationController
 
     puts("ここにputsしたものが表示されるよ！！")
     puts(params[:data])
-    #puts(create_params)
+    #test = (params[:data][:image][0]) + (params[:data][:image][1]) + (params[:data][:image][2])
+    a = [params[:data][:image]].split(",").map(&:to_i)
+
+    puts(a)
+
+
+    puts(create_params)
     respond_to do |format|
       if @prototype.save
 

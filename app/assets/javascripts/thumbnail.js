@@ -30,7 +30,7 @@ $(function(){
     $('.material')
     .mousedown(function(){
       index = $('.material').index(this); // classの値を取得
-      console.log(index);
+      //console.log(index);
     })
     .mouseup(function(){
       var h = $('.material_' + (index+1)).height();
@@ -41,7 +41,10 @@ $(function(){
       var li = parseFloat( l );
       array[index] = [h,w,ti,li];
       console.log(array);
-      data = parseInt($('#data_' + (index+1)).val(array[index]));
+      parseInt($('#data_' + (index+1)).val(array[index]));
+      //data = parseInt($('#data_' + (index+1)).val());
+
+      //console.log(data);
     })
   });
 
@@ -89,8 +92,10 @@ $(function(){
         var li = parseFloat( l );
             array[index] = [h,w,ti,li]
             console.log(array);
-            data = parseInt($data_in.val(array[index]));
-            //console.log(document.getElementById('data'));
+            parseInt($data_in.val(array[index]));
+            //data = parseInt($data_in.val());
+
+            //console.log(data);
         //読み込み後に画像の移動とリサイズが可能
         $('.img').resizable({
           containment: ".preview",
