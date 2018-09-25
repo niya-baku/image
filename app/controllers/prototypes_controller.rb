@@ -22,24 +22,27 @@ class PrototypesController < ApplicationController
     #a = params[:data][:image].split(",").map!(&:to_i)
     #a = params[:data][:image].split(",").to_i
 
-    @height = a[0]
-    @width  = a[1]
-    @top = a[2]
-    @left = a[3]
+    height = a[0]
+    width  = a[1]
+    top = a[2]
+    left = a[3]
 
-    puts(@height)
-    puts(@width)
-    puts(@top)
-    puts(@left)
+    puts(height)
+    puts(width)
+    puts(top)
+    puts(left)
     respond_to do |format|
       if @prototype.save
+        image_data = []
+
         @prototype.thumbnails.each do |thumbnail|
         thumb = thumbnail.image_url
         thumb.slice!(0)
         puts(thumb)
-        original = Magick::Image.read(thumb)
+        original = Magick::Image.read("public/#{thumb}").first
         image = original.resize(320, 500)
-        image.write('resize3.jpg')  #=> 横320×縦200のサイズに
+        image_data.push(image)
+        #image.write('resize3.jpg')  #=> 横320×縦200のサイズに
         end
 
         format.html { redirect_to :action => "show",:id => Prototype.last.id }
