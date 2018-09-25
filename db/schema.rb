@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2018_09_20_064634) do
     t.datetime "updated_at", null: false
     t.string "prototype"
     t.string "references"
-    t.integer "data"
+    t.string "data"
     t.index ["prototype_id"], name: "index_thumbnails_on_prototype_id"
   end
 
