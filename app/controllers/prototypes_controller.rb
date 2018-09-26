@@ -14,35 +14,58 @@ class PrototypesController < ApplicationController
   def create
     @prototype = Prototype.new(create_params)
 
-
     puts("ここにputsしたものが表示されるよ！！")
     puts(params[:data])
     #test = (params[:data][:image][0]) + (params[:data][:image][1]) + (params[:data][:image][2])
-    a = params[:data][:image_1].split(",").map(&:to_i)
-    #a = params[:data][:image].split(",").map!(&:to_i)
-    #a = params[:data][:image].split(",").to_i
+    data_1 = params[:data][:image_1].split(",").map(&:to_i)
+    data_2 = params[:data][:image_2].split(",").map(&:to_i)
+    data_3 = params[:data][:image_3].split(",").map(&:to_i)
+    data_4 = params[:data][:image_4].split(",").map(&:to_i)
 
-    height = a[0]
-    width  = a[1]
-    top = a[2]
-    left = a[3]
+    @height_1 = data_1[0]; @width_1  = data_1[1]; @top_1 = data_1[2]; @left_1 = data_1[3]; puts(@height_1); puts(@width_1); puts(@top_1); puts(@left_1)
+    @height_2 = data_2[0]; @width_2  = data_2[1]; @top_2 = data_2[2]; @left_2 = data_2[3]; puts(@height_2); puts(@width_2); puts(@top_2); puts(@left_2)
+    @height_3 = data_3[0]; @width_3  = data_3[1]; @top_3 = data_3[2]; @left_3 = data_3[3]; puts(@height_3); puts(@width_3); puts(@top_3); puts(@left_3)
+    @height_4 = data_4[0]; @width_4  = data_4[1]; @top_4 = data_4[2]; @left_4 = data_4[3]; puts(@height_4); puts(@width_4); puts(@top_4); puts(@left_4)
 
-    puts(height)
-    puts(width)
-    puts(top)
-    puts(left)
+=begin
+    puts("ここから下はeval")
+    x = 1
+    while x<=4
+        puts eval("@height_#{x}")
+        puts eval("@width_#{x}")
+        puts eval("@top_#{x}")
+        puts eval("@left_#{x}")
+        x += 1
+    end
+=end
+    y = 1
+    #puts(height);puts(width);puts(top);puts(left)
     respond_to do |format|
       if @prototype.save
-        image_data = []
-
+        #image_data = []
         @prototype.thumbnails.each do |thumbnail|
         thumb = thumbnail.image_url
         thumb.slice!(0)
-        puts(thumb)
+        #puts("この下がthumb")
+        #puts(thumb)
         original = Magick::Image.read("public/#{thumb}").first
-        image = original.resize(320, 500)
-        image_data.push(image)
+        #uts(original)
+
+        puts(y)
+        w = eval("@width_#{y}")
+        h = eval("@height_#{y}")
+        y += 1
+        puts(w)
+        puts(h)
+        puts(y)
+        image = original.resize(w,h)
+
+        #puts(image)
+        image.write("public/#{thumb}")
+        #image_data.push(image) #image_data内に選択した画像を格納する
         #image.write('resize3.jpg')  #=> 横320×縦200のサイズに
+        #puts("この下がimage_data")
+        #puts(image_data)
         end
 
         format.html { redirect_to :action => "show",:id => Prototype.last.id }
