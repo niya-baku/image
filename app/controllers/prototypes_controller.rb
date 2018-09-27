@@ -39,6 +39,7 @@ class PrototypesController < ApplicationController
     end
 =end
     y = 1
+    image = Magick::Image.read('public/CorkBoard2.jpg').first
     #puts(height);puts(width);puts(top);puts(left)
     respond_to do |format|
       if @prototype.save
@@ -51,23 +52,27 @@ class PrototypesController < ApplicationController
         original = Magick::Image.read("public/#{thumb}").first
         #uts(original)
 
-        puts(y)
         w = eval("@width_#{y}")
         h = eval("@height_#{y}")
+        t = eval("@top_#{y}")
+        l = eval("@left_#{y}")
         y += 1
         puts(w)
         puts(h)
-        puts(y)
-        image = original.resize(w,h)
+        puts(t)
+        puts(l)
+        image_size = original.resize(w,h)
 
+        image.composite!(image_size, t, l , Magick::OverCompositeOp)
         #puts(image)
         image.write("public/#{thumb}")
+        #image.write("public/resize/zesize.jpg")
         #image_data.push(image) #image_data内に選択した画像を格納する
         #image.write('resize3.jpg')  #=> 横320×縦200のサイズに
         #puts("この下がimage_data")
         #puts(image_data)
         end
-
+        image.write("public/uploads/resize/zesize.jpg")
         format.html { redirect_to :action => "show",:id => Prototype.last.id }
         format.json { render :show, status: :created, location: @prototype }
       else

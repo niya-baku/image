@@ -2,17 +2,8 @@
   <strong>Image:</strong>
 
 
-    <tr>
+    <div class="preview">
       <%  @prototype.thumbnails.each do |thumbnail| %>
       <%= image_tag thumbnail.image_url %>
       <% end %>
-    </tr>
-
-    
-
-    <div class="preview">
-        <div class="material material_1"></div>
-        <div class="material material_2"></div>
-        <div class="material material_3"></div>
-        <div class="material material_4"></div>
     </div>

@@ -49,12 +49,14 @@ $(function(){
   });
 
   //preview内のサイズ変更イベント
-  $('input[name="X-size"]').change(function(){
+  $('input[name="X_size"]').change(function(){
    $('.preview').css('width',$(this).val() + 'px');
-   $('input[name="data[flame_X]"]').val($(this).val() + 'px');
+   //parseInt($('.preview').css('width',$(this).val() + 'px'));
+  // $('input[name="data[flame_X]"]').val($(this).val() + 'px');
  });
-  $('input[name="Y-size"]').change(function(){
+  $('input[name="Y_size"]').change(function(){
    $('.preview').css('height',$(this).val() + 'px');
+   //parseInt($('.preview').css('height',$(this).val() + 'px'));
  });
   //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
   $('form').on('change', 'input[type="file"]', function(e) {
