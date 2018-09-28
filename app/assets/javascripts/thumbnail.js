@@ -36,9 +36,9 @@ $(function(){
       var h = $('.material_' + (index+1)).height();
       var w = $('.material_' + (index+1)).width();
       var t = $(".material_" + (index+1)).css("top");
-      var ti = parseFloat( t );
+      var ti = parseInt( t );
       var l = $(".material_" + (index+1)).css("left");
-      var li = parseFloat( l );
+      var li = parseInt( l );
       array[index] = [h,w,ti,li];
       console.log(array);
       parseInt($('#data_' + (index+1)).val(array[index]));
@@ -89,9 +89,9 @@ $(function(){
         var h = $preview.height();
         var w = $preview.width();
         var t = $preview.css("top");
-        var ti = parseFloat( t );
+        var ti = parseInt( t );
         var l = $preview.css("left");
-        var li = parseFloat( l );
+        var li = parseInt( l );
             array[index] = [h,w,ti,li]
             console.log(array);
             parseInt($data_in.val(array[index]));
