@@ -20,18 +20,20 @@
 		        <li class="btn" style="display:inline">画像選択&hellip;<%= thumbnail.file_field :image, id: "submit", style: "display:none;"%></li>
           </label>
       <% end %>
+    <!--ここで各画像の高さ、幅、位置情報を取得 -->
     <%= hidden_field :data, :image_1 , value:  "" , id: 'data_1' %>
     <%= hidden_field :data, :image_2 , value:  "" , id: 'data_2' %>
     <%= hidden_field :data, :image_3 , value:  "" , id: 'data_3' %>
     <%= hidden_field :data, :image_4 , value:  "" , id: 'data_4' %>
 
-    
+    <%= hidden_field :data, :X_size, value: "1280" , id: 'top' %>
+    <%= hidden_field :data, :Y_size, value: "1000" , id: 'left' %>
 	    <%= f.submit  "ダウンロード画面へ", id: "submit" %>
     <% end %>
   </div>
 
-  X:<input type="number" name="X_size" value="1280" />
-  Y:<input type="number" name="Y_size" value="1000" />
+  X:<input type="number" name="X_size" value="1280" id = top/>
+  Y:<input type="number" name="Y_size" value="1000" id = left/>
 
   <div class="radio">
     <label><input type="radio" name="optionsRadios" id="optionsRadios1" value="1">:test1</label>

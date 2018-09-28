@@ -51,12 +51,16 @@ $(function(){
   //preview内のサイズ変更イベント
   $('input[name="X_size"]').change(function(){
    $('.preview').css('width',$(this).val() + 'px');
-   //parseInt($('.preview').css('width',$(this).val() + 'px'));
+   //背景画像の幅を取得
+   w_css = parseInt($('.preview').css('width'));
+   ($('#top').val(w_css));
   // $('input[name="data[flame_X]"]').val($(this).val() + 'px');
  });
   $('input[name="Y_size"]').change(function(){
    $('.preview').css('height',$(this).val() + 'px');
-   //parseInt($('.preview').css('height',$(this).val() + 'px'));
+   //背景画像の高さを取得
+   h_css =  parseInt($('.preview').css('height'));
+   ($('#left').val(h_css));
  });
   //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
   $('form').on('change', 'input[type="file"]', function(e) {
