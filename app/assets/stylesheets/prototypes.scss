@@ -114,22 +114,31 @@ box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 .material_1{
 	left:0;
 	top:0;
+  z-index: 1;
 }
 
 .material_2{
   left:320px;
 	top:0;
+  z-index: 1;
 }
 
 .material_3{
   left:0;
 	top:200px;
+  z-index: 1;
 }
 
 .material_4{
   left:320px;
 	top:200px;
+  z-index: 1;
 }
+
+.material_5{
+  z-index: 0;
+}
+
 
 
 

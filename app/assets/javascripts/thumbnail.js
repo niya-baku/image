@@ -64,6 +64,15 @@ $(document).on('turbolinks:load',function(event){
  });
   //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
   $('form').on('change', 'input[type="file"]', function(e) {
+    var image_is_background = false;
+        image_width = "320px";
+        image_height = "200px";
+
+    if((index+1)== 5) {
+      image_is_background = true;
+      image_width = parseInt($('.preview').css('width'));
+      image_height = parseInt($('.preview').css('height'));
+    }
 
     var file = e.target.files[0];
         reader = new FileReader();
@@ -84,8 +93,8 @@ $(document).on('turbolinks:load',function(event){
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
         $preview.append($('<img>').attr({
                   src: e.target.result,
-                  width: "320px",
-                  height: "200px",
+                  width: image_width,
+                  height: image_height,
                   class: "img",
                   title: file.name
               }));
@@ -103,13 +112,14 @@ $(document).on('turbolinks:load',function(event){
 
             //console.log(data);
         //読み込み後に画像の移動とリサイズが可能
+        if(image_is_background == false){
         $('.img').resizable({
           containment: ".preview",
         });
         $preview.draggable({
           containment: ".preview",
-
         });
+      };
       };
     })(file);
 

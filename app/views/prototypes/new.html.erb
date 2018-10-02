@@ -13,10 +13,18 @@
 <from>
   <div class="multiple">
       <%= form_for @prototype do |f| %>
+        <% i=0 %>
 		      <%= f.fields_for :thumbnails do |thumbnail| %>
+            <% i+=1 %>
+            <% if i <= 4 %>
           <label id="submit">
 		        <li class="btn" style="display:inline">画像選択&hellip;<%= thumbnail.file_field :image, id: "submit", style: "display:none;"%></li>
           </label>
+          <% else %>
+          <label id="submit">
+		        <li class="btn" style="display:inline">背景選択&hellip;<%= thumbnail.file_field :image, id: "submit", style: "display:none;"%></li>
+          </label>
+          <% end %>
       <% end %>
     <!--ここで各画像の高さ、幅、位置情報を取得 -->
     <%= hidden_field :data, :image_1 , value:  "" , id: 'data_1' %>
@@ -47,6 +55,7 @@
     <div class="material material_2"></div>
     <div class="material material_3"></div>
     <div class="material material_4"></div>
+    <div class="material material_5"></div>
 </div>
   </form>
 
