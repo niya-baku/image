@@ -62,6 +62,12 @@ box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
  position: relative;
 }
 
+
+#show_img img{
+  margin:auto;
+  display: block;
+}
+
 #jquery-ui-draggable1 {
     width: 100px;
     height: 100px;
@@ -123,4 +129,29 @@ box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 .material_4{
   left:320px;
 	top:200px;
+}
+
+
+
+
+li{
+  list-style: none;
+  display: inline;
+  margin-right: 10em;
+
+}
+/* ボタン*/
+.show_btn{
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;
+    color: #FFF;
+    border-radius: 4px;
+    box-shadow: 0px 0px 0px 5px #668ad8;
+    border: dashed 1px #FFF;
+}
+
+.show_btn:hover{
+	border: dotted 1px #FFF;
 }

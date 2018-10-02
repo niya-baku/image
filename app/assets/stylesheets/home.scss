@@ -5,7 +5,7 @@
 /* 共通レイアウト ================================ */
 .main {
   position: absolute;
-  top: 64px;
+  top: 20px;
   width: 100%;
   height: auto;
   min-height: 100%;
@@ -51,16 +51,33 @@
 /* メインパネル */
 .top-main {
   padding: 46px 0 0 0; /* メインパネル上部に46ピクセルの余白を設定 */
-  height: 500px; /* メインパネルの高さを400pxに設定 */
-  background-image: url("/neko1.jpg");
+  background-image: url("/panel.jpg");
   /* 背景を中央寄せで繰り返しなしで設定 */
-  background-size: cover; /* 背景画像をフルスクリーンで表示 */
+  background-size: cover;
+	position: relative;
+	height:600px;
 }
+
+.top-main::before{
+  /* 透過した黒を重ねる */
+background-color: rgba(0,0,0,0.5);
+/* どの範囲に重ねるかを指定 */
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+content: ' ';
+}
+
+
 
 .top-area {
   margin: 0 auto; /* 横幅をautoにすることでコンテンツが中央寄りになります */
   padding: 90px 0 0 0; /* メインパネルコンテンツ上部に90ピクセルの余白を設定 */
-  width: 980px; /* 横幅を980ピクセルで設定 */
+  width: 1280px; /* 横幅を980ピクセルで設定 */
+  position: absolute;
+  text-align: center;
 }
 
 
@@ -69,7 +86,29 @@ h1{
   font-size: 182%; /* フォントサイズを元サイズの182%で表示 */
   font-weight: bold; /* 太字 */
   line-height: 2.0em; /* 上下に半行余白の段落の高さを設定 */
-  color: black; /* フォントの色を白に設定 */
+  color: #fff; /* フォントの色を白に設定 */
+}
+
+p{
+  margin-bottom: 10px;  /* h1の下に10pxの余白を設定 */
+  font-size: 20px; /* フォントサイズを元サイズの182%で表示 */
+  font-weight: bold; /* 太字 */
+  color: #fff; /* フォントの色を白に設定 */
+}
+/* ボタン*/
+.square_btn{
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;
+    color: #FFF;
+    border-radius: 4px;
+    box-shadow: 0px 0px 0px 5px #668ad8;
+    border: dashed 1px #FFF;
+}
+
+.square_btn:hover{
+	border: dotted 1px #FFF;
 }
 
 a:link {
@@ -80,4 +119,19 @@ a:link {
  a:hover {  /* hoverはマウスを乗せたときの設定 */
    color: #cd4730; /* リンクテキストを赤色に設定 */
    text-decoration: underline; /* テキストに下線が表示されないように設定 */
+ }
+
+ /* フラッシュ ================================ */
+ .flash {
+   padding: 10px 0;
+   color: black;
+   background: #13EEFF;
+   text-align: center;
+   position: absolute;
+   top: 64px;
+   z-index: 10;
+   width: 100%;
+   border-radius: 0 0 2px 2px;
+   font-size: 30px;
+   font-family: sans-serif;
  }

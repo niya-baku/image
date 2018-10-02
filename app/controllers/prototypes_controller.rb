@@ -74,6 +74,8 @@ class PrototypesController < ApplicationController
 
         end
         back_image.write("public/uploads/resize/resize.jpg")
+        flash[:notice] = "画像が合体しました！"
+
         format.html { redirect_to :action => "show",:id => Prototype.last.id }
         format.json { render :show, status: :created, location: @prototype }
       else

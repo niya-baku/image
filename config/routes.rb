@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources:prototypes, only:[:new, :create]
   get "prototypes/:id" => "prototypes#show"
   post "prototypes/create" => "prototypes#create"
-  get '/' => 'prototypes#new'
+  get 'prototypes/new' => 'prototypes#new'
+
+  get '/' => 'home#top'
 
 
 

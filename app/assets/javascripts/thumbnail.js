@@ -21,7 +21,7 @@ $(function() {
   console.log( array );
 
 //各ファイル選択によって画像を表示するイベント追加
-$(function(){
+$(document).on('turbolinks:load',function(event){
   $('li').on('click', function () {
     index = $('li.btn').index(this);
   });
