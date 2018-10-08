@@ -15,47 +15,33 @@
 /* タイトルサイズ ================================ */
 .title_size{
   float: left; /* ロゴ表示部分を左寄せで設定 */
-  width: 250px;
-  height: 80px;
+  width: 300px;
+  height: 100px;
 
 }
 
 /* ヘッダー */
-.header {
 
-  width: 100%; /* 横幅を画面一杯に設定 */
-  height: 46px; /* ヘッダーの高さを設定 */
-  background: white; /* 背景色の設定 */
+.header{
   border-bottom: solid 1px #EEE; /* ヘッダーの下に1ピクセルの実線を設定 */
+
+  height: 80px; /* ヘッダーの高さを設定 */
+  background: white; /* 背景色の設定 */
 }
 
-
-/* グローバルナビゲーション */
-.header-menus {
-  float: right;
-  padding-right: 30px;
-}
-
-.header-menus ul{
-  clear: both; /* 回り込みを解除する際に使用しdiv要素が重ならないように設定 */
-}
-
-.header-menus li {
+.header-logo {
   float: left;
-  line-height: 10px;
-  font-size: 15px;
-  color: white;
-  list-style: none;
+  padding: 5px 10px;
 }
 
 /* メインパネル */
 .top-main {
-  padding: 46px 0 0 0; /* メインパネル上部に46ピクセルの余白を設定 */
+  margin-top: 20px;
   background-image: url("/panel.jpg");
   /* 背景を中央寄せで繰り返しなしで設定 */
   background-size: cover;
 	position: relative;
-	height:600px;
+	height: 800px;
 }
 
 .top-main::before{
@@ -74,23 +60,22 @@ content: ' ';
 
 .top-area {
   margin: 0 auto; /* 横幅をautoにすることでコンテンツが中央寄りになります */
-  padding: 90px 0 0 0; /* メインパネルコンテンツ上部に90ピクセルの余白を設定 */
-  width: 1280px; /* 横幅を980ピクセルで設定 */
+  padding: 200px 0 0 0; /* メインパネルコンテンツ上部に90ピクセルの余白を設定 */
+  width: 1500px; /* 横幅を980ピクセルで設定 */
   position: absolute;
   text-align: center;
 }
 
 
-h1{
+.top-area h1{
   margin-bottom: 10px;  /* h1の下に10pxの余白を設定 */
   font-size: 182%; /* フォントサイズを元サイズの182%で表示 */
   font-weight: bold; /* 太字 */
-  line-height: 2.0em; /* 上下に半行余白の段落の高さを設定 */
+  line-height: 1.0em; /* 上下に半行余白の段落の高さを設定 */
   color: #fff; /* フォントの色を白に設定 */
 }
 
-p{
-  margin-bottom: 10px;  /* h1の下に10pxの余白を設定 */
+.top-area p{
   font-size: 20px; /* フォントサイズを元サイズの182%で表示 */
   font-weight: bold; /* 太字 */
   color: #fff; /* フォントの色を白に設定 */

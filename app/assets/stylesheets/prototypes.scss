@@ -10,6 +10,14 @@
   background-color: #f5f8fa;
 }
 
+.new-main h1{
+  text-align: center;
+}
+
+.new-main p{
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 #submit{
@@ -68,44 +76,6 @@ box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
   display: block;
 }
 
-#jquery-ui-draggable1 {
-    width: 100px;
-    height: 100px;
-    padding: 50px;
-    margin: 0;
-    background-image: url("/CorkBoard.jpg");
-}
-
-#jquery-ui-draggable {
-  position: relative;
-}
-
-#jquery-ui-draggable2 {
-  position: relative;
-}
-
-#jquery-ui-draggable3 {
-  position: relative;
-}
-
-#jquery-ui-draggable4 {
-  position: relative;
-}
-
-
-
-#jquery-ui-resizable {
-    width: 300px;
-    height: 100px;
-    padding: 0.5em;
-    border: solid 10px #C0C0C0;
-}
-#jquery-ui-resizable h3 {
-    text-align: center;
-    margin: 0px 0px 0.5em 0px;
-}
-
-
 .material{
 	position: absolute;
 
@@ -136,6 +106,8 @@ box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 }
 
 .material_5{
+  width:  1280px;
+  height: 1000px;
   z-index: 0;
 }
 
@@ -144,9 +116,8 @@ box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 
 
 li{
-  list-style: none;
   display: inline;
-  margin-right: 10em;
+  margin: 10px 20px;
 
 }
 /* ボタン*/

@@ -11,26 +11,19 @@
   </head>
 
   <body>
-    <header>
+    <div class="main">
       <div class="header">
-
-      <!--<img src="title.png" id="title_size">-->
-      <%= link_to image_tag("title.png" , :class => "title_size"), "/"  %>
-
-      <ul class="header-menus">
-          <ul>
-            <li><a href="#">Image Unionとは</a></li>
-          </ul>
-
-
+        <div class="header-logo">
+        <%= link_to image_tag("title.png" , :class => "title_size"), "/"  %>
+        </div>
 
     </div>
-  </header>
-  <% if flash[:notice] %>
-        <div class="flash">
-          <%= flash[:notice] %>
-        </div>
-      <% end %>
-    <%= yield %>
+    <% if flash[:notice] %>
+          <div class="flash">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>

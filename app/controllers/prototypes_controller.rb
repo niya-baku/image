@@ -19,6 +19,10 @@ class PrototypesController < ApplicationController
     data_3 = params[:data][:image_3].split(",").map(&:to_i)
     data_4 = params[:data][:image_4].split(",").map(&:to_i)
 
+    #背景画像の情報
+    data_5 = params[:data][:image_5].split(",").map(&:to_i)
+
+
     data_x = params[:data][:X_size].to_i
     data_y = params[:data][:Y_size].to_i
 
@@ -29,6 +33,7 @@ class PrototypesController < ApplicationController
     @height_2 = data_2[0]; @width_2  = data_2[1]; @top_2 = data_2[2]; @left_2 = data_2[3] #puts(@height_2); puts(@width_2); puts(@top_2); puts(@left_2)
     @height_3 = data_3[0]; @width_3  = data_3[1]; @top_3 = data_3[2]; @left_3 = data_3[3] #puts(@height_3); puts(@width_3); puts(@top_3); puts(@left_3)
     @height_4 = data_4[0]; @width_4  = data_4[1]; @top_4 = data_4[2]; @left_4 = data_4[3] #puts(@height_4); puts(@width_4); puts(@top_4); puts(@left_4)
+    @height_5 = data_5[0]; @width_5  = data_5[1]; @top_5 = data_5[2]; @left_5 = data_5[3] #puts(@height_4); puts(@width_4); puts(@top_4); puts(@left_4)
 
 =begin
     puts("ここから下はeval")
@@ -53,6 +58,9 @@ class PrototypesController < ApplicationController
         @prototype.thumbnails.each do |thumbnail|
         thumb = thumbnail.image_url
         thumb.slice!(0)
+
+        puts("この下はthumb")
+        puts(thumb)
 
         original = Magick::Image.read("public/#{thumb}").first
 

@@ -4,22 +4,20 @@
 
 
 <div class="new-main">
-  画像を選択してください
-  <div class="progress">
-    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-  </div>
+  <h1>画像を選択してください</h1>
 
 
 <from>
+
   <div class="multiple">
       <%= form_for @prototype do |f| %>
         <% i=0 %>
 		      <%= f.fields_for :thumbnails do |thumbnail| %>
             <% i+=1 %>
             <% if i <= 4 %>
-          <label id="submit">
-		        <li class="btn" style="display:inline">画像選択&hellip;<%= thumbnail.file_field :image, id: "submit", style: "display:none;"%></li>
-          </label>
+
+		        <li class="btn"><%= thumbnail.file_field :image, id: "submit" %></li>
+
           <% else %>
           <label id="submit">
 		        <li class="btn" style="display:inline">背景選択&hellip;<%= thumbnail.file_field :image, id: "submit", style: "display:none;"%></li>
@@ -32,6 +30,7 @@
     <%= hidden_field :data, :image_3 , value:  "" , id: 'data_3' %>
     <%= hidden_field :data, :image_4 , value:  "" , id: 'data_4' %>
 
+    <%= hidden_field :data, :image_5 , value:  "" , id: 'data_5' %>
     <%= hidden_field :data, :X_size, value: "1280" , id: 'top' %>
     <%= hidden_field :data, :Y_size, value: "1000" , id: 'left' %>
 	    <%= f.submit  "ダウンロード画面へ", id: "submit" %>
@@ -40,15 +39,6 @@
 
   X:<input type="number" name="X_size" value="1280" id = top/>
   Y:<input type="number" name="Y_size" value="1000" id = left/>
-
-  <div class="radio">
-    <label><input type="radio" name="optionsRadios" id="optionsRadios1" value="1">:test1</label>
-    <label><input type="radio" name="optionsRadios" id="optionsRadios1" value="2">:test2</label>
-    <label><input type="radio" name="optionsRadios" id="optionsRadios1" value="3">:test3</label>
-    <label><input type="radio" name="optionsRadios" id="optionsRadios1" value="4">:test4</label>
-    <label><input type="radio" name="optionsRadios" id="optionsRadios1" value="4">:フリー</label>
-  </div>
-
 
 <div class="preview">
     <div class="material material_1"></div>

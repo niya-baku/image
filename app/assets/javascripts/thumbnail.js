@@ -1,23 +1,6 @@
-/*$('#on').click(function(e) {
-  //div要素から配列にする
-  var arr = $.makeArray($('.material'));
-  console.log(arr);
-});*/
-/*
-$(function(){
-$('#size').click(function(e) {
-  console.log(array);
-    });
-});*/
-$(function() {
-  $( 'input[name="optionsRadios"]:radio' ).change( function() {
-    var radioval = $(this).val();
-
-  });
-});
 
 //各画像情報で使用する配列の作成
-  var array = new Array(4);
+  var array = new Array(5);
   console.log( array );
 
 //各ファイル選択によって画像を表示するイベント追加
@@ -51,27 +34,43 @@ $(document).on('turbolinks:load',function(event){
   //preview内のサイズ変更イベント
   $('input[name="X_size"]').change(function(){
    $('.preview').css('width',$(this).val() + 'px');
-   //背景画像の幅を取得
-   w_css = parseInt($('.preview').css('width'));
-   ($('#top').val(w_css));
-  // $('input[name="data[flame_X]"]').val($(this).val() + 'px');
+
+   //背景画像が選択された場合.previewと同じサイズに変更される
+   parseInt($('.material_5').css('width',$(this).val() + 'px'));
+   w = $('.material_5').width();
+   console.log(w);
+   var img = $(".material_5 > img"); //画像を取得
+    img.width(w);
+    array[4][1] = w;
+    console.log(array[4]);
+    parseInt($('#data_5').val(array[4]));
  });
   $('input[name="Y_size"]').change(function(){
    $('.preview').css('height',$(this).val() + 'px');
-   //背景画像の高さを取得
-   h_css =  parseInt($('.preview').css('height'));
-   ($('#left').val(h_css));
+
+   //背景画像が選択された場合.previewと同じサイズに変更される
+   parseInt($('.material_5').css('height',$(this).val() + 'px'));
+   h = $('.material_5').height();
+   console.log(h);
+   var img = $(".material_5 > img"); //画像を取得
+    img.height(h);
+    array[4][0] = h;
+    console.log(array[4]);
+    parseInt($('#data_5').val(array[4]));
  });
+
+
+
+
   //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
   $('form').on('change', 'input[type="file"]', function(e) {
-    var image_is_background = false;
+
         image_width = "320px";
         image_height = "200px";
 
     if((index+1)== 5) {
-      image_is_background = true;
-      image_width = parseInt($('.preview').css('width'));
-      image_height = parseInt($('.preview').css('height'));
+      image_width = $('.material_' + (index+1)).css('width');
+      image_height =  $('.material_' + (index+1)).css('height');
     }
 
     var file = e.target.files[0];
@@ -91,13 +90,22 @@ $(document).on('turbolinks:load',function(event){
         //既存のプレビューを削除
         $preview.empty();
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
+        if($preview.index() !=4){
         $preview.append($('<img>').attr({
                   src: e.target.result,
                   width: image_width,
                   height: image_height,
-                  class: "img",
-                  title: file.name
+                  title: file.name,
+                  class: "img"
               }));
+            }else if($preview.index() ==4){
+              $preview.append($('<img>').attr({
+                        src: e.target.result,
+                        width: image_width,
+                        height: image_height,
+                        title: file.name
+                    }));
+            }
         //画像の縦横比と位置情報を整数として取得する
         var h = $preview.height();
         var w = $preview.width();
@@ -110,16 +118,17 @@ $(document).on('turbolinks:load',function(event){
             parseInt($data_in.val(array[index]));
             //data = parseInt($data_in.val());
 
+
             //console.log(data);
-        //読み込み後に画像の移動とリサイズが可能
-        if(image_is_background == false){
+        //読み込み後に画像の移動とリサイズが可能（ただし、material_5material_5のみ適応外とする）
         $('.img').resizable({
           containment: ".preview",
         });
+        if($preview.index() !=4){
         $preview.draggable({
           containment: ".preview",
         });
-      };
+      }
       };
     })(file);
 
