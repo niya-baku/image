@@ -1,12 +1,35 @@
-
 //各画像情報で使用する配列の作成
   var array = new Array(5);
   console.log( array );
+
+  array[4] =[1000,1280,0,0];
 
 //各ファイル選択によって画像を表示するイベント追加
 $(document).on('turbolinks:load',function(event){
   $('li').on('click', function () {
     index = $('li.btn').index(this);
+    if(index==4){
+      const back_choice_x = document.getElementById("back_choice_x");
+      const back_choice_y = document.getElementById("back_choice_y");
+      const back_choice_w = document.getElementById("back_choice_w");
+      const back_choice_h = document.getElementById("back_choice_h");
+
+      if(back_choice_w.style.display=="inline"){
+    		// noneで非表示
+    		back_choice_x.style.display ="none";
+        $('.preview').css("background-image","url()"); 
+    	}else{
+    		// inlineで表示
+    		back_choice_w.style.display ="inline";
+    	}
+      if(back_choice_h.style.display=="inline"){
+    		// noneで非表示
+    		back_choice_y.style.display ="none";
+    	}else{
+    		// inlineで表示
+    		back_choice_h.style.display ="inline";
+    	}
+    }
   });
 //各画像を選択した際に画像の情報を取得
   $(function(){
@@ -34,30 +57,48 @@ $(document).on('turbolinks:load',function(event){
   //preview内のサイズ変更イベント
   $('input[name="X_size"]').change(function(){
    $('.preview').css('width',$(this).val() + 'px');
+   pre_w = $('.preview').css("width");
+   pre_wi = parseInt( pre_w );
+   console.log(pre_wi);
+   parseInt($('#top').val(pre_wi));
 
-   //背景画像が選択された場合.previewと同じサイズに変更される
-   parseInt($('.material_5').css('width',$(this).val() + 'px'));
-   w = $('.material_5').width();
-   console.log(w);
-   var img = $(".material_5 > img"); //画像を取得
-    img.width(w);
-    array[4][1] = w;
-    console.log(array[4]);
-    parseInt($('#data_5').val(array[4]));
  });
   $('input[name="Y_size"]').change(function(){
    $('.preview').css('height',$(this).val() + 'px');
+   pre_h = $('.preview').css("height");
+   pre_hi = parseInt( pre_h );
+   console.log(pre_hi);
+   parseInt($('#left').val(pre_hi));
 
-   //背景画像が選択された場合.previewと同じサイズに変更される
-   parseInt($('.material_5').css('height',$(this).val() + 'px'));
-   h = $('.material_5').height();
-   console.log(h);
-   var img = $(".material_5 > img"); //画像を取得
-    img.height(h);
-    array[4][0] = h;
-    console.log(array[4]);
-    parseInt($('#data_5').val(array[4]));
  });
+
+ document.getElementById("back_choice_x").style.display ="inline";
+ document.getElementById("back_choice_y").style.display ="inline";
+ document.getElementById("back_choice_w").style.display ="none";
+ document.getElementById("back_choice_h").style.display ="none";
+
+
+ $('input[name="data_w"]').change(function(){
+  parseInt($('.material_5').css('width',$(this).val() + 'px'));
+  w = $('.material_5').width();
+  console.log(w);
+  var img = $(".material_5 > img"); //画像を取得
+   img.width(w);
+   array[4][1] = w;
+   console.log(array[4]);
+   parseInt($('#data_5').val(array[4]));
+});
+
+ $('input[name="data_h"]').change(function(){
+  parseInt($('.material_5').css('height',$(this).val() + 'px'));
+  h = $('.material_5').height();
+  console.log(h);
+  var img = $(".material_5 > img"); //画像を取得
+   img.height(h);
+   array[4][0] = h;
+   console.log(array[4]);
+   parseInt($('#data_5').val(array[4]));
+});
 
 
 

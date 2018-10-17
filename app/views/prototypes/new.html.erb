@@ -20,7 +20,7 @@
 
           <% else %>
           <label id="submit">
-		        <li class="btn" style="display:inline">背景選択&hellip;<%= thumbnail.file_field :image, id: "submit", style: "display:none;"%></li>
+		        <li class="btn" style="display:inline" >背景選択&hellip;<%= thumbnail.file_field :image, id: "submit", style: "display:none;" %></li>
           </label>
           <% end %>
       <% end %>
@@ -31,14 +31,18 @@
     <%= hidden_field :data, :image_4 , value:  "" , id: 'data_4' %>
 
     <%= hidden_field :data, :image_5 , value:  "" , id: 'data_5' %>
-    <%= hidden_field :data, :X_size, value: "1280" , id: 'top' %>
-    <%= hidden_field :data, :Y_size, value: "1000" , id: 'left' %>
+    <%= hidden_field :data, :image_x , value:  "1280" , id: 'top' %>
+    <%= hidden_field :data, :image_y , value:  "1000" , id: 'left' %>
+
 	    <%= f.submit  "ダウンロード画面へ", id: "submit" %>
     <% end %>
   </div>
 
-  X:<input type="number" name="X_size" value="1280" id = top/>
-  Y:<input type="number" name="Y_size" value="1000" id = left/>
+  <span id="back_choice_x">X:<input type="number" name="X_size" value="1280" id = top/></span>
+  <span id="back_choice_y">Y:<input type="number" name="Y_size" value="1000" id = left/></span>
+
+  <span id="back_choice_w">横幅:<input type="number" name="data_w" value="1280" id = data_5></span>
+  <span id="back_choice_h">高さ:<input type="number" name="data_h" value="1000" id = data_5></span>
 
 <div class="preview">
     <div class="material material_1"></div>
