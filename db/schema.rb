@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_20_064634) do
+ActiveRecord::Schema.define(version: 2018_10_19_111612) do
 
   create_table "prototypes", force: :cascade do |t|
     t.string "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2018_09_20_064634) do
     t.string "prototype"
     t.string "references"
     t.string "data"
+    t.boolean "background"
     t.index ["prototype_id"], name: "index_thumbnails_on_prototype_id"
   end
 

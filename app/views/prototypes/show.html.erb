@@ -3,5 +3,8 @@
   <li><%= link_to("新しい画像を作成する","/prototypes/new",class:"show_btn") %></li>
   <li><%= link_to("トップ画面に戻る","/",class:"show_btn") %></li>
 </ul>
-  <div id="show_img"><%= image_tag '/uploads/changeimage/change.jpg' %></div>
-  <div id="show_img"><%= image_tag '/uploads/resize/resize.jpg' %></div>
+<% @prototype.thumbnails.order(background: "DESC").each do |thumbnail| %>
+  <img src=<%= thumbnail.image %>>
+<% end %>
+<!-- <div id="show_img"><%= image_tag '/uploads/changeimage/change.jpg' %></div>
+  <div id="show_img"><%= image_tag '/uploads/resize/resize.jpg' %></div> -->

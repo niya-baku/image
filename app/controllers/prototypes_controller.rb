@@ -14,11 +14,6 @@ class PrototypesController < ApplicationController
   def create
     @prototype = Prototype.new(create_params)
 
-    data_1 = params[:data][:image_1].split(",").map(&:to_i)
-    data_2 = params[:data][:image_2].split(",").map(&:to_i)
-    data_3 = params[:data][:image_3].split(",").map(&:to_i)
-    data_4 = params[:data][:image_4].split(",").map(&:to_i)
-
     #背景画像の情報
     data_5 = params[:data][:image_5].split(",").map(&:to_i)
     data_w = data_5[1]
@@ -28,13 +23,10 @@ class PrototypesController < ApplicationController
     data_x = params[:data][:image_x].to_i
     data_y = params[:data][:image_y].to_i
 
-    puts(data_x)
-    puts(data_y)
 
-    @height_1 = data_1[0]; @width_1  = data_1[1]; @top_1 = data_1[2]; @left_1 = data_1[3] #puts(@height_1); puts(@width_1); puts(@top_1); puts(@left_1)
-    @height_2 = data_2[0]; @width_2  = data_2[1]; @top_2 = data_2[2]; @left_2 = data_2[3] #puts(@height_2); puts(@width_2); puts(@top_2); puts(@left_2)
-    @height_3 = data_3[0]; @width_3  = data_3[1]; @top_3 = data_3[2]; @left_3 = data_3[3] #puts(@height_3); puts(@width_3); puts(@top_3); puts(@left_3)
-    @height_4 = data_4[0]; @width_4  = data_4[1]; @top_4 = data_4[2]; @left_4 = data_4[3] #puts(@height_4); puts(@width_4); puts(@top_4); puts(@left_4)
+
+
+
     @height_5 = data_5[0]; @width_5  = data_5[1];
 
     y = 1
@@ -49,17 +41,20 @@ class PrototypesController < ApplicationController
       respond_to do |format|
         if @prototype.save
           #背景画像以外の処理
+          #@prototype.thumbnails.where(background:true).each do |thumbnail|を使用して先に背景画像を処理する
           @prototype.thumbnails.each do |thumbnail|
+          datas = thumbnail.data.split(",").map(&:to_i)
+          height = datas[0]; width  = datas[1]; top = datas[2]; left = datas[3];
+
           thumb = thumbnail.image_url
           thumb.slice!(0)
 
           original = Magick::Image.read("public/#{thumb}").first
 
-          w = eval("@width_#{y}")
-          h = eval("@height_#{y}")
-          t = eval("@top_#{y}")
-          l = eval("@left_#{y}")
-          y += 1
+          w = eval("width")
+          h = eval("height")
+          t = eval("top")
+          l = eval("left")
           #puts(w)
           #puts(h)
           #puts(t)
@@ -147,6 +142,6 @@ class PrototypesController < ApplicationController
 
   private
     def create_params
-      params.require(:prototype).permit(:data,thumbnails_attributes: [:image])
+      params.require(:prototype).permit(:data,thumbnails_attributes: [:image,:background,:data])
     end
 end

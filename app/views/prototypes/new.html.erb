@@ -17,10 +17,13 @@
             <% if i <= 4 %>
 
 		        <li class="btn"><%= thumbnail.file_field :image, id: "submit" %></li>
-
+            <%= thumbnail.hidden_field :background , :value => "false" %>
+            <%= thumbnail.hidden_field :data , :value => "" %>
           <% else %>
           <label id="submit">
 		        <li class="btn" style="display:inline" >背景選択&hellip;<%= thumbnail.file_field :image, id: "submit", style: "display:none;" %></li>
+            <%= thumbnail.hidden_field :background , :value => "true" %>
+            <%= thumbnail.hidden_field :data , :value => "" %>
           </label>
           <% end %>
       <% end %>

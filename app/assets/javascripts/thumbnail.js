@@ -17,7 +17,7 @@ $(document).on('turbolinks:load',function(event){
       if(back_choice_w.style.display=="inline"){
     		// noneで非表示
     		back_choice_x.style.display ="none";
-        $('.preview').css("background-image","url()"); 
+        $('.preview').css("background-image","url()");
     	}else{
     		// inlineで表示
     		back_choice_w.style.display ="inline";
@@ -47,7 +47,7 @@ $(document).on('turbolinks:load',function(event){
       var li = parseInt( l );
       array[index] = [h,w,ti,li];
       console.log(array);
-      parseInt($('#data_' + (index+1)).val(array[index]));
+      parseInt($('#prototype_thumbnails_attributes_' + (index) + '_data').val(array[index]));
       //data = parseInt($('#data_' + (index+1)).val());
 
       //console.log(data);
@@ -118,7 +118,7 @@ $(document).on('turbolinks:load',function(event){
         reader = new FileReader();
         preview_class = (".material_" + (index+1));
         $preview = $(preview_class);
-        data_id = ("#data_" + (index+1));
+        data_id = ($('#prototype_thumbnails_attributes_' + (index) + '_data').val(array[index]));
         $data_in = $(data_id);
     // 画像ファイル以外の場合は何もしない
     if(file.type.indexOf("image") < 0){
